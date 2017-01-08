@@ -1,8 +1,4 @@
-Translations: 
-- [中文版本](README-cn.md)
-- [Español (in progress)](README-es.md) [Issue #80](https://github.com/jwasham/google-interview-university/issues/80)
-- [हिन्दी (in progress)](README-hn.md) [Issue #81](https://github.com/jwasham/google-interview-university/issues/81)
-- [עברית (in progress)](README-he.md) [Issue #82](https://github.com/jwasham/google-interview-university/issues/82)
+[Today](#today)
 
 
 ## What is it?
@@ -284,7 +280,8 @@ Sometimes the classes are not in session so you have to wait a couple of months,
     - [ ] [Effective Whiteboarding during Programming Interviews](http://www.coderust.com/blog/2014/04/10/effective-whiteboarding-during-programming-interviews/)
     - [ ] Cracking The Coding Interview Set 1:
         - [x] [Gayle L McDowell - Cracking The Coding Interview (video)](https://www.youtube.com/watch?v=rEJzOhC5ZtQ)
-        - [ ] [Cracking the Coding Interview with Author Gayle Laakmann McDowell (video)](https://www.youtube.com/watch?v=aClxtDcdpsQ)
+        - [x] [Cracking the Coding Interview with Author Gayle Laakmann McDowell (video)](https://www.youtube.com/watch?v=aClxtDcdpsQ)
+# Today
     - [ ] How to Get a Job at the Big 4:
         - [ ] ['How to Get a Job at the Big 4 - Amazon, Facebook, Google & Microsoft' (video)](https://www.youtube.com/watch?v=YJZCUhxNCv8)
     - [ ] [Failing at Google Interviews](http://alexbowe.com/failing-at-google-interviews/)
