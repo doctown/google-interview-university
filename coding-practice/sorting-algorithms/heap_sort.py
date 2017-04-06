@@ -1,63 +1,79 @@
-def sort(array):
-  heap = heapInsert(array)
-  sorted_array = []
+import math
+class Heap():
+  def __init__(self, array):
+    self.array = array
+    self.heap = self.heapInsert(self.array)
 
-  while len(heap) > 0:
-    sorted_array.append(getMin(heap))
+  def sort(self):
+    sorted_array = []
 
-  return sorted_array
+    while len(self.heap) > 0:
+      sorted_array.append(self.getMin())
 
-def heapInsert(array):
-  heap = []
-  for i in array:
-    heap.append(i)
-    bubbleUp(heap)
+    return sorted_array
 
-  return heap
+  def heapInsert(self, array):
+    heap = []
+    for num in array:
+      heap.append(num)
+      self.bubbleUp(heap, len(heap) - 1)
 
-def getParent(heap, i):
-  return i / 2 - 1
+    return heap
 
-def getChild(heap, i):
-  return i * 2 + 1
+  def getParent(self, i):
+    return math.ceil(i / 2) - 1
 
-def bubbleUp(heap, idx):
-  parent_idx = getParent(heap, idx)
+  def getChild(self, i):
+    return i * 2 + 1
 
-  if heap[parent_idx] > heap[idx]:
-    swap(heap, idx, parent_idx)
-    idx = parent_idx
-    parent_idx = getParent(heap, idx)
-    bubbleUp(heap, idx)
+  def bubbleUp(self, heap, idx):
+    parent_idx = self.getParent(idx)
 
-def bubbleDown(heap, i):
-  # TODO: Implement bubble down
+    if parent_idx != -1 and heap[parent_idx] > heap[idx]:
+      self.swap(heap, idx, parent_idx)
+      self.bubbleUp(heap, parent_idx)
 
-def swap(heap, i , k):
-  heap[k], heap[i] = heap[i], heap[k]
+  def bubbleDown(self, heap, idx):
+    child_idx = self.getChild(idx)
+    other_child_idx = child_idx + 1
 
-def getMin(heap):
-  child = getChild(heap, 0)
-  bubbleDown(heap, child)
-  min_num = heap.pop()
+    if child_idx < len(heap) and  heap[idx] > heap[child_idx]:
+        self.swap(heap, idx, child_idx)
+        self.bubbleDown(heap, child_idx)
+    elif other_child_idx < len(heap) and heap[idx] > heap[other_child_idx]:
+        self.swap(heap, idx, other_child_idx)
+        self.bubbleDown(heap, other_child_idx)
 
-  return min_num
+  def swap(self, heap, i , k):
+    heap[k], heap[i] = heap[i], heap[k]
+
+  def getMin(self):
+    min_num = None
+
+    if len(self.heap) > 0:
+      min_num = self.heap.pop(0)
+      if len(self.heap) > 0:
+        self.bubbleDown(self.heap, 0)
+
+    return min_num
 
 def testSuite():
   sorted_numbers = [1, 2, 3, 4, 5]
   unsorted_numbers = [3, 5, 2, 1, 4]
   duplicate_numbers = [7, 3, 5, 4, 2, 1, 4]
 
-  actual = sort(sorted_numbers)
+  heap = Heap(sorted_numbers)
+  actual = heap.sort()
   assert(actual == sorted_numbers)
 
-  actual = sort(unsorted_numbers)
+  heap = Heap(unsorted_numbers)
+  actual = heap.sort()
   assert(actual == sorted_numbers)
 
-  actual = sort(duplicate_numbers)
+  heap = Heap(duplicate_numbers)
+  actual = heap.sort()
   assert(actual == [1, 2, 3, 4, 4, 5, 7])
 
 if __name__ == "__main__":
   testSuite()
-
 
