@@ -5,7 +5,7 @@ memo = {}
 def fib(n):
     if n <= 0:
         return 0
-    if n == 1:
+    elif n == 1:
         return 1
     else:
         if memo.get(n -1) is None:
