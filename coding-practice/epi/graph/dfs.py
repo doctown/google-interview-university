@@ -4,7 +4,7 @@ DFS with adjacency list (iterative with stack)
 DFS with adjacency matrix (recursive)
 DFS with adjacency matrix (iterative with stack)
 """
-
+from collections import deque
 
 class Graph:
     """
@@ -99,6 +99,28 @@ def dfsRecurMatrix(g, nodeIndex, func, visited):
             dfsRecurMatrix(g, childIndex, func, visited)
 
 
+def bfs_matrix(g, func=print):
+    matrix = g.matrix
+    q = deque()
+    for r in range(len(matrix)):
+        for c in range(len(matrix[0])):
+            if matrix[r][c]:
+                q.append((r, c))
+                break
+    visited = set()
+
+    while q:
+        r, c = q.popleft()
+        if (r,c) not in visited:
+            visited.add((r, c))
+            func((r, c))
+
+            for next_c in range(len(matrix[0])):
+                next_node = (next_c, r)
+                if next_node not in visited and matrix[r][next_c]:
+                    q.append(next_node)
+
+
 def TestSuite():
     g = Graph(5)
     g.addEdge(1, 4)
@@ -110,7 +132,8 @@ def TestSuite():
 #    alRecurDFS(g)
     # mRecur(g)
     # dfsIter(g)
-    dfsIterMatrix(g)
+  # dfsIterMatrix(g)
+    bfs_matrix(g)
 
 
 if __name__ == "__main__":

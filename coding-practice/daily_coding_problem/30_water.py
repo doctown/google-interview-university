@@ -10,3 +10,11 @@ Given the input [3, 0, 1, 3, 0, 5], we can hold 3 units in the first index, 2 in
 
 
 """
+
+
+const bowl = {
+  [Symbol('apple')]: { color: 'red', weight: 136.078 },
+  [Symbol('banana')]: { color: 'yellow', weight: 183.151 },
+  [Symbol('orange')]: { color: 'orange', weight: 170.097 },
+  [Symbol('banana')]: { color: 'yellow', weight: 176.845 }
+      };
